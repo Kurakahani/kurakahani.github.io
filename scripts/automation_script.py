@@ -55,6 +55,8 @@ def main():
             for vid in new_video_ids:
                 f.write(vid + "\n")
 
+        new_video_ids.reverse()
+        
         # Process new videos
         for video_id in new_video_ids:
             # Call conversion_script to convert video to audio
