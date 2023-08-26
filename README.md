@@ -52,7 +52,7 @@ You don't need to run any scripts yourself to access the audio content or RSS fe
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under [the MIT License](https://github.com/ChandanShakya/Kurakahani/blob/main/LICENSE).
 
 ## Contact
 For any inquiries, suggestions, or collaboration opportunities, please feel free to reach out to:
