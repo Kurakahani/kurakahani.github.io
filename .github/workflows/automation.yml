@@ -34,12 +34,12 @@ jobs:
         run: |
           python scripts/automation_script.py
 
-          - name: Commit changes
-          run: |
-            git config --global user.name '${{ secrets.MAIN_USERNAME }}'
-            git config --global user.email '${{ secrets.MAIN_EMAIL }}'
-            git add .
-            git commit -m "New Podcast"
-            git push
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit changes
+        run: |
+          git config --global user.name '${{ secrets.MAIN_USERNAME }}'
+          git config --global user.email '${{ secrets.MAIN_EMAIL }}'
+          git add .
+          git commit -m "New Podcast"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
