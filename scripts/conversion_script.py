@@ -1,7 +1,9 @@
+from PIL import Image
 import os
 import yt_dlp
 import googleapiclient.discovery
 import googleapiclient.errors
+
 
 # YouTube API key
 API_KEY = os.environ.get("API_KEY")
@@ -24,10 +26,24 @@ def convert_video_to_audio(video_id):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
         
-    # Move the downloaded thumbnail to the "images" folder
-    thumbnail_source_path = f"audio_files/{video_id}.jpg"  # Adjust the extension if necessary
-    thumbnail_destination_path = f"images/{video_id}.jpg"
-    os.rename(thumbnail_source_path, thumbnail_destination_path)
+    # Determine the thumbnail format
+    thumbnail_format = None
+    for filename in os.listdir('audio_files'):
+        if filename.startswith(video_id) and filename != f"{video_id}.mp3":
+            thumbnail_format = filename.split('.')[-1]
+            break
+            
+    if thumbnail_format is not None:
+        thumbnail_source_path = f"audio_files/{video_id}.{thumbnail_format}"
+        thumbnail_destination_path = f"images/{video_id}.jpg"
+        
+        # Convert the thumbnail to JPG format if it's not already
+        if thumbnail_format != 'jpg':
+            img = Image.open(thumbnail_source_path)
+            img.save(thumbnail_destination_path, format="JPEG")  # Save as JPG format
+            os.remove(thumbnail_source_path)  # Remove the original file
+        else:
+            os.rename(thumbnail_source_path, thumbnail_destination_path)  # Just move if already JPG
 
 def extract_metadata(video_id):
     try:
