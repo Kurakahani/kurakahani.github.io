@@ -3,14 +3,13 @@ def generate_rss_entry(metadata):
     <item>
         <title>{metadata['title']}</title>
         <description>{metadata['description']}</description>
-        <enclosure url="{metadata['audio_url']}" length="1" type="audio/mpeg"/>
+        <enclosure url="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['audio_url']}" length="1" type="audio/mpeg"/>
         <author>{metadata['author']}</author>
         <pubDate>{metadata['published_date']}</pubDate>
-        <guid>{metadata['audio_url']}</guid>
+        <guid>https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['audio_url']}</guid>
         <itunes:author>{metadata['author']}</itunes:author>
         <itunes:explicit>no</itunes:explicit>
-        <itunes:image href="{metadata['image']}"/>
-        <itunes:duration>{metadata['duration']}</itunes:duration>
+        <itunes:image href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['image']}.jpg"/>
     </item>
     """
     return rss_entry
@@ -42,9 +41,9 @@ def update_rss_feed(metadata):
 
     # Check if the file exists, and create it if not
     try:
-        with open("rss_feed.xml", "x") as f:
+        with open("rss_feed.xml", "x", encoding="utf-8") as f:
             f.write(rss_content)
     except FileExistsError:
         # File already exists, so append to it
-        with open("rss_feed.xml", "a") as f:
+        with open("rss_feed.xml", "a", encoding="utf-8") as f:
             f.write(generate_rss_entry(metadata))

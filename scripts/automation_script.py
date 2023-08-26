@@ -5,7 +5,7 @@ from conversion_script import convert_video_to_audio, extract_metadata
 from rss_feed_generator import generate_rss_entry, update_rss_feed
 
 # YouTube API key
-API_KEY = "AIzaSyDuZ1iJNWR9GxSnZEWge4f2uQsjYmTfH2g"
+API_KEY = "YOUR_YOUTUBE_API_KEY"
 
 # YouTube Data API client
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
@@ -40,7 +40,7 @@ def main():
     # Load existing video IDs from the available_podcasts.txt file
     existing_video_ids = []
     if os.path.exists("available_podcasts.txt"):
-        with open("available_podcasts.txt", "r") as f:
+        with open("available_podcasts.txt", "r", encoding="utf-8") as f:
             existing_video_ids = [line.strip() for line in f.readlines()]
 
     # Get new video IDs

@@ -1,3 +1,4 @@
+import os
 import yt_dlp
 import googleapiclient.discovery
 import googleapiclient.errors
@@ -17,18 +18,16 @@ def convert_video_to_audio(video_id):
             "key": "FFmpegExtractAudio",
             "preferredcodec": "mp3",
             "preferredquality": "192"
-        }]
+        }],
+        "writethumbnail": True
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
-
-    # Download video thumbnail as PNG
-    ydl_opts_thumbnail = {
-        "format": "best",  # Specify the desired format for the thumbnail
-        "outtmpl": f"images/{video_id}.png"
-    }
-    with yt_dlp.YoutubeDL(ydl_opts_thumbnail) as ydl_thumbnail:
-        ydl_thumbnail.download([f"https://www.youtube.com/watch?v={video_id}"])
+        
+    # Move the downloaded thumbnail to the "images" folder
+    thumbnail_source_path = f"audio_files/{video_id}.jpg"  # Adjust the extension if necessary
+    thumbnail_destination_path = f"images/{video_id}.jpg"
+    os.rename(thumbnail_source_path, thumbnail_destination_path)
 
 def extract_metadata(video_id):
     try:
@@ -49,8 +48,7 @@ def extract_metadata(video_id):
             "image": f"images/{video_id}",
             "language": "Nepali",
             "audio_url": f"audio_files/{video_id}.mp3",
-            "published_date": video_data["publishedAt"],
-            "duration": video_data["duration"]
+            "published_date": video_data["publishedAt"]
         }
         return metadata
 
