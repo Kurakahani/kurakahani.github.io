@@ -1,3 +1,6 @@
+import re
+
+
 def generate_rss_entry(metadata):
     rss_entry = f"""
     <item>
@@ -37,13 +40,33 @@ def update_rss_feed(metadata):
         </channel>
         </rss>
         """
-    rss_content = rss_header + generate_rss_entry(metadata) + rss_footer
+    # Create a list to store the generated <item> elements
+    rss_entries = []
 
-    # Check if the file exists, and create it if not
+    # Add the new <item> element to the list
+    rss_entries.append(generate_rss_entry(metadata))
+
+    # Read the existing <item> elements from the rss_feed.xml file (if it exists)
     try:
-        with open("rss_feed.xml", "x", encoding="utf-8") as f:
-            f.write(rss_content)
-    except FileExistsError:
-        # File already exists, so append to it
-        with open("rss_feed.xml", "a", encoding="utf-8") as f:
-            f.write(generate_rss_entry(metadata))
+        with open("rss_feed.xml", "r", encoding="utf-8") as f:
+            rss_content = f.read()
+
+        # Extract the existing <item> elements
+        existing_items = re.findall(
+            r"<item>.*?</item>", rss_content, re.DOTALL)
+
+        # Add the existing <item> elements to the list
+        rss_entries.extend(existing_items)
+    except FileNotFoundError:
+        pass  # No need to do anything if the file doesn't exist yet
+
+    # Sort the <item> elements based on pubDate
+    rss_entries.sort(key=lambda item: re.search(
+        r"<pubDate>(.*?)</pubDate>", item).group(1), reverse=True)
+
+    # Combine all <item> elements to recreate the rss_feed.xml content
+    rss_content = rss_header + "\n".join(rss_entries) + rss_footer
+
+    # Write the sorted content to the rss_feed.xml file
+    with open("rss_feed.xml", "w", encoding="utf-8") as f:
+        f.write(rss_content)
