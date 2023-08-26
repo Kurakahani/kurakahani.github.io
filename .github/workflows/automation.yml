@@ -13,16 +13,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: 3.9
 
-      - name: Install FFmpeg
+      - name: Install FFmpeg and git lfs
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
+          sudo apt-get install -y git-lfs
+          git lfs install
 
       - name: Install dependencies
         run: |
@@ -38,6 +42,7 @@ jobs:
         run: |
           git config --global user.name '${{ secrets.MAIN_USERNAME }}'
           git config --global user.email '${{ secrets.MAIN_EMAIL }}'
+          git lfs track "*.mp3"
           git add .
           git commit -m "New Podcast"
           git push
