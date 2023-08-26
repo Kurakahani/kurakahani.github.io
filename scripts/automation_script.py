@@ -5,7 +5,7 @@ from conversion_script import convert_video_to_audio, extract_metadata
 from rss_feed_generator import generate_rss_entry, update_rss_feed
 
 # YouTube API key
-API_KEY = "YOUR_YOUTUBE_API_KEY"
+API_KEY = os.environ.get("API_KEY")
 
 # YouTube Data API client
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)

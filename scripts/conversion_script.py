@@ -4,7 +4,7 @@ import googleapiclient.discovery
 import googleapiclient.errors
 
 # YouTube API key
-API_KEY = "YOUR_YOUTUBE_API_KEY"
+API_KEY = os.environ.get("API_KEY")
 
 # YouTube Data API client
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
