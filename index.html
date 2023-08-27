@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kurakahani Podcast</title>
+</head>
+<body>
+
+<h1>Kurakahani Podcast</h1>
+
+<!-- Subscribe Button -->
+<a href="https://www.youtube.com/@KuraKahaniPodcast" target="_blank">Subscribe on YouTube</a>
+<br>
+<a href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/rss_feed.xml" target="_blank">Subscribe to RSS</a>
+
+<!-- List of Episodes -->
+<ul>
+    <!-- Include a placeholder element with an ID to populate with episodes -->
+    <div id="episodes"></div>
+</ul>
+
+<script>
+    // Fetch and parse the rss_feed.xml file
+    fetch('rss_feed.xml')
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, 'application/xml');
+
+            // Loop through each <item> element and create a list item
+            const items = xml.querySelectorAll('item');
+            const episodesContainer = document.getElementById('episodes');
+
+            items.forEach(item => {
+                const title = item.querySelector('title').textContent;
+                const description = item.querySelector('description').textContent;
+                const image = item.querySelector('itunes\\:image').getAttribute('href');
+                const audioUrl = item.querySelector('enclosure').getAttribute('url');
+
+                // Create the episode HTML
+                const episodeHTML = `
+                    <li>
+                        <h2>${title}</h2>
+                        <p>${description}</p>
+                        <img src="${image}" alt="Episode Image">
+                        <audio controls>
+                            <source src="${audioUrl}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </li>
+                `;
+
+                // Add the episode HTML to the episodes container
+                episodesContainer.innerHTML += episodeHTML;
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching rss_feed.xml:', error);
+        });
+</script>
+
+</body>
+</html>
