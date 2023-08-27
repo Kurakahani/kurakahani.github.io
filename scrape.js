@@ -1,5 +1,5 @@
 // Fetch and parse the rss_feed.xml file
-fetch('https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/rss_feed.xml')
+fetch('https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/rss_feed.xml')
     .then(response => response.text())
     .then(data => {
         const parser = new DOMParser();

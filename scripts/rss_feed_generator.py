@@ -6,13 +6,13 @@ def generate_rss_entry(metadata):
         <item>
             <title>{metadata['title']}</title>
             <description>{metadata['description']}</description>
-            <enclosure url="https://media.githubusercontent.com/media/ChandanShakya/Kurakahani/main/{metadata['audio_url']}" length="1" type="audio/mpeg"/>
+            <enclosure url="https://media.githubusercontent.com/media/Kurakahani/Kurakahani.github.io/main/{metadata['audio_url']}" length="1" type="audio/mpeg"/>
             <author>{metadata['author']}</author>
             <pubDate>{metadata['published_date']}</pubDate>
-            <guid>https://media.githubusercontent.com/media/ChandanShakya/Kurakahani/main/{metadata['audio_url']}</guid>
+            <guid>https://media.githubusercontent.com/media/Kurakahani/Kurakahani.github.io/main/{metadata['audio_url']}</guid>
             <itunes:author>{metadata['author']}</itunes:author>
             <itunes:explicit>no</itunes:explicit>
-            <itunes:image href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['image']}.jpg"/>
+            <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/{metadata['image']}.jpg"/>
         </item>
     """
     return rss_entry
@@ -27,7 +27,7 @@ def update_rss_feed(metadata):
     <language>ne</language>
     <itunes:author>Prabin Buddhacharya</itunes:author>
     <itunes:category text="Entertainment"/>
-    <itunes:image href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/images/logo.jpg"/>
+    <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/logo.jpg"/>
     <description>We are Kurakahani Podcast channel. We do podcast with different people of different background. Trying to hear and share the story of them.
     We are team of three individuals with different interest but the talking and sharing of different idea bought us together and here we are to share and hear the story of us and our friends guest that shows up on the podcast.
     Kurakahani is a platform to share the feelings, ideas, gossip and many more.

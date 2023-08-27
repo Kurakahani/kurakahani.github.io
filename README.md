@@ -39,7 +39,7 @@ Behind the scenes, this project employs a combination of automation, scripting, 
 
 3. **RSS Feed Generation**: The metadata (title, description, etc.) of the video is extracted using the YouTube Data API. An RSS feed is then automatically generated using this metadata and the link to the converted audio file.
 
-4. **GitHub Action**: The entire process is automated through a GitHub Action workflow. It runs the automation script and ensures that the latest audio files and RSS feed are available on this repository: [https://github.com/ChandanShakya/Kurakahani](https://github.com/ChandanShakya/Kurakahani).
+4. **GitHub Action**: The entire process is automated through a GitHub Action workflow. It runs the automation script and ensures that the latest audio files and RSS feed are available on this repository: [https://github.com/Kurakahani/Kurakahani.github.io](https://github.com/Kurakahani/Kurakahani.github.io).
 
 You don't need to run any scripts yourself to access the audio content or RSS feed. Simply visit the repository linked above to access the content.
 
@@ -52,12 +52,12 @@ You don't need to run any scripts yourself to access the audio content or RSS fe
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
 
 ## License
-This project is licensed under [the MIT License](https://github.com/ChandanShakya/Kurakahani/blob/main/LICENSE).
+This project is licensed under [the MIT License](https://github.com/Kurakahani/Kurakahani.github.io/blob/main/LICENSE).
 
 ## Contact
 For any inquiries, suggestions, or collaboration opportunities, please feel free to reach out to:
 
-Chandan Shakya
+Kurakahani Podcast
 
-ZXY-CC-3ag13@pm.me
+kurakahani@gmail.com
 
