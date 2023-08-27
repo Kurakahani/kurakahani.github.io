@@ -11,6 +11,16 @@ API_KEY = os.environ.get("API_KEY")
 # YouTube Data API client
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
 
+def compress_audio(input_path, output_path, target_size):
+    bitrate = 128  # Initial bitrate in kbps
+    while True:
+        os.system(f"ffmpeg -i {input_path} -c:a aac -b:a {bitrate}k {output_path}")
+        compressed_size = os.path.getsize(output_path)
+        if compressed_size <= target_size:
+            break
+        bitrate -= 8  # Reduce bitrate by 8 kbps for the next iteration
+
+
 def convert_video_to_audio(video_id):
     # Download video as audio
     ydl_opts = {
