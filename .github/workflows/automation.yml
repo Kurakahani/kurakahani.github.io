@@ -48,3 +48,17 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine Next Release Number
+        id: determine_release_number
+        run: echo "::set-output name=release_number::$(($(git tag -l | wc -l) + 1))"
+  
+      - name: Create Release
+        uses: ncipollo/release-action@v1.13.0
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: v${{ steps.determine_release_number.outputs.release_number }}
+          name: Release v${{ steps.determine_release_number.outputs.release_number }}
+          body: Release Notes
