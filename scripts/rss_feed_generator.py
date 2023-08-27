@@ -19,8 +19,7 @@ def generate_rss_entry(metadata):
 
 
 def update_rss_feed(metadata):
-    rss_header = """
-<?xml version="1.0" encoding="UTF-8"?>
+    rss_header = """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
 <channel>
     <title>Kurakahani Podcast</title>
@@ -38,8 +37,7 @@ def update_rss_feed(metadata):
         """
     rss_footer = """
 </channel>
-</rss>
-        """
+</rss>"""
     # Create a list to store the generated <item> elements
     rss_entries = []
 
