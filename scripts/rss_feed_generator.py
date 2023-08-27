@@ -6,10 +6,10 @@ def generate_rss_entry(metadata):
     <item>
         <title>{metadata['title']}</title>
         <description>{metadata['description']}</description>
-        <enclosure url="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['audio_url']}" length="1" type="audio/mpeg"/>
+        <enclosure url="https://media.githubusercontent.com/media/ChandanShakya/Kurakahani/main/{metadata['audio_url']}" length="1" type="audio/mpeg"/>
         <author>{metadata['author']}</author>
         <pubDate>{metadata['published_date']}</pubDate>
-        <guid>https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['audio_url']}</guid>
+        <guid>https://media.githubusercontent.com/media/ChandanShakya/Kurakahani/main/{metadata['audio_url']}</guid>
         <itunes:author>{metadata['author']}</itunes:author>
         <itunes:explicit>no</itunes:explicit>
         <itunes:image href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/{metadata['image']}.jpg"/>

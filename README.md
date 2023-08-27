@@ -35,7 +35,7 @@ Behind the scenes, this project employs a combination of automation, scripting, 
 
 1. **Automation Script**: An automation script periodically checks for new podcast videos on the [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast).
 
-2. **Audio Conversion**: When a new video is detected, the script uses a tool to download and convert the video's audio into MP3 format.
+2. **Audio Conversion**: When a new video is detected, the script uses a tool to download and convert the video's audio into M4A format.
 
 3. **RSS Feed Generation**: The metadata (title, description, etc.) of the video is extracted using the YouTube Data API. An RSS feed is then automatically generated using this metadata and the link to the converted audio file.
 

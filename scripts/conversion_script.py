@@ -14,13 +14,8 @@ youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
 def convert_video_to_audio(video_id):
     # Download video as audio
     ydl_opts = {
-        "format": "bestaudio/best",
+        "format": "140",
         "outtmpl": f"audio_files/{video_id}.%(ext)s",
-        "postprocessors": [{
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "mp3",
-            "preferredquality": "192"
-        }],
         "writethumbnail": True
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -29,7 +24,7 @@ def convert_video_to_audio(video_id):
     # Determine the thumbnail format
     thumbnail_format = None
     for filename in os.listdir('audio_files'):
-        if filename.startswith(video_id) and filename != f"{video_id}.mp3":
+        if filename.startswith(video_id) and filename != f"{video_id}.m4a":
             thumbnail_format = filename.split('.')[-1]
             break
             
@@ -63,7 +58,7 @@ def extract_metadata(video_id):
             "email": "kurakahani@gmail.com",
             "image": f"images/{video_id}",
             "language": "Nepali",
-            "audio_url": f"audio_files/{video_id}.mp3",
+            "audio_url": f"audio_files/{video_id}.m4a",
             "published_date": video_data["publishedAt"]
         }
         return metadata
