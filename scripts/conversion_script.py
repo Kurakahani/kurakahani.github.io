@@ -12,13 +12,13 @@ API_KEY = os.environ.get("API_KEY")
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
 
 def compress_audio(input_path, output_path, target_size):
-    bitrate = 128  # Initial bitrate in kbps
+    bitrate = 96  # Initial bitrate in kbps
     while True:
-        os.system(f"ffmpeg -i {input_path} -c:a aac -b:a {bitrate}k {output_path}")
+        os.system(f"ffmpeg -i {input_path} -c:a aac -b:a {bitrate}k -y {output_path}")
         compressed_size = os.path.getsize(output_path)
         if compressed_size <= target_size:
             break
-        bitrate -= 8  # Reduce bitrate by 8 kbps for the next iteration
+        bitrate -= 16 # Reduce bitrate by 8 kbps for the next iteration
 
 
 def convert_video_to_audio(video_id):
@@ -31,6 +31,21 @@ def convert_video_to_audio(video_id):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
         
+    # Compress the audio file
+    audio_path = f"audio_files/{video_id}.m4a"
+    
+    # Compress audio if larger than 50 MiB
+    audio_size = os.path.getsize(audio_path)
+    if audio_size > 50 * 1024 * 1024:  # If larger than 50 MiB
+        compressed_audio_path = f"audio_files/{video_id}_compressed.m4a"
+        compress_audio(audio_path, compressed_audio_path, 50 * 1024 * 1024)
+        
+        # Delete the original audio file
+        os.remove(audio_path)
+        
+        # Rename the compressed audio file to the original name
+        os.rename(compressed_audio_path, audio_path)
+    
     # Determine the thumbnail format
     thumbnail_format = None
     for filename in os.listdir('audio_files'):
