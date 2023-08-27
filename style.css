@@ -1,0 +1,51 @@
+/* Custom CSS */
+.card {
+    margin-bottom: 1.25em;
+    /* Equivalent to 20px */
+    padding: 1.25em;
+    /* Equivalent to 20px */
+}
+
+.card-title {
+    font-size: 3em;
+    /* Equivalent to 24px */
+}
+
+.card-text {
+    font-size: 2.3em;
+    /* Equivalent to 18px */
+}
+
+.btn {
+    font-size: 1em;
+    /* Equivalent to 18px */
+}
+/* Override the default link color */
+.icon-link {
+    color: black;
+}
+
+/* Override link color on hover */
+.icon-link:hover {
+    color: black;
+}
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 1.25em;
+        /* Equivalent to 20px */
+    }
+
+    .card-text {
+        font-size: 1em;
+        /* Equivalent to 16px */
+    }
+
+    .btn {
+        font-size: 2.3em;
+        /* Equivalent to 16px */
+    }
+
+}
+
+

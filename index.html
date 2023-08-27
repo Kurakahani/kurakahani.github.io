@@ -1,56 +1,89 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Kurakahani Podcast</title>
+<html lang="en">
+
+<link>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurakahani Podcast | Listen to Engaging Stories</title>
+    <meta name="description"
+        content="Explore a collection of engaging stories on the Kurakahani Podcast. Listen to episodes filled with captivating narratives and insightful discussions. Subscribe now to stay updated!">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Custom CSS */
-        .card {
-            margin-bottom: 1.25em; /* Equivalent to 20px */
-            padding: 1.25em; /* Equivalent to 20px */
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/images/logo.svg"
+        type="image/svg+xml">
+    <link rel="canonical" href="https://chandanshakya.github.io/Kurakahani/">
+    <script src="https://kit.fontawesome.com/1f6a832ce8.js" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "PodcastSeries",
+          "name": "Kurakahani Podcast",
+          "description": "Explore a collection of engaging stories on the Kurakahani Podcast. Listen to episodes filled with captivating narratives and insightful discussions.",
+          "url": "https://chandanshakya.github.io/Kurakahani/",
+          "image": "https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/images/logo.svg",
+          "sameAs": [
+            "https://www.youtube.com/@KuraKahaniPodcast",
+            "https://www.instagram.com/kurakahani",
+            "https://www.patreon.com/kurakahani",
+            "https://twitter.com/kurakahani",
+            "https://podcasters.spotify.com/pod/show/kura-kahani",
+            "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83ZTY4ZGYzNC9wb2RjYXN0L3Jzcw"
+          ]
         }
-        .card-title {
-            font-size: 3em; /* Equivalent to 24px */
-        }
-        .card-text {
-            font-size: 2.3em; /* Equivalent to 18px */
-        }
-        .btn {
-            font-size: 1em; /* Equivalent to 18px */
-        }
-        /* Responsive adjustments */
-        @media (max-width: 576px) {
-            .card-title {
-                font-size: 1.25em; /* Equivalent to 20px */
-            }
-            .card-text {
-                font-size: 1em; /* Equivalent to 16px */
-            }
-            .btn {
-                font-size: 2.3em; /* Equivalent to 16px */
-            }
-        }
-    </style>
-    
+        </script>
+    <link rel="stylesheet" href="style.css"></link>
+
 </head>
+
 <body class="text-center">
+    <header>
+        <h1 class="mb-4 mt-5">Kurakahani Podcast</h1>
 
-<div class="container mt-5">
-    <h1 class="mb-4">Kurakahani Podcast</h1>
+        <!-- Subscribe Buttons -->
+        <div class="mb-3 text-center">
+            <a class="btn btn-primary" href="https://www.youtube.com/@KuraKahaniPodcast" target="_blank"
+                rel="noopener">Subscribe
+                on YouTube</a>
+            <a class="btn btn-secondary ml-2"
+                href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/rss_feed.xml" target="_blank"
+                rel="noopener">Subscribe to RSS</a>
+        </div>
+    </header>
 
-    <!-- Subscribe Buttons -->
-    <div class="mb-3 text-center">
-        <a class="btn btn-primary" href="https://www.youtube.com/@KuraKahaniPodcast" target="_blank">Subscribe on YouTube</a>
-        <a class="btn btn-secondary ml-2" href="https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/rss_feed.xml" target="_blank">Subscribe to RSS</a>
-    </div>
-
-    <!-- List of Episodes -->
-    <div class="row">
-        <!-- Include a placeholder element with an ID to populate with episodes -->
-        <div id="episodes" class="col-md-12"></div>
-    </div>
-</div>
-
-<script src="scrape.js"></script>
+    <main class="container mt-5">
+        <!-- List of Episodes -->
+        <div class="row">
+            <!-- Include a placeholder element with an ID to populate with episodes -->
+            <div id="episodes" class="col-md-12"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mt-5">
+                    <p>&copy;
+                        <script> document.write(new Date().getFullYear());</script> Kurakahani Podcast x Chandan Shakya
+                    </p>
+                    <!-- Links to instagram, youtube, google podcast, spotify podcast, patreon and twitter -->
+                    <a class="icon-link" href="https://www.instagram.com/kurakahani" target="_blank" rel="noopener"
+                        title="Kurakahani Instagram"><i class="fa-brands fa-instagram fa-3x"></i></a>
+                    <a class="icon-link" href="https://www.youtube.com/@KuraKahaniPodcast" target="_blank"
+                        rel="noopener" title="Kurakahani Youtube"><i class="fa-brands fa-youtube fa-3x"></i></a>
+                    <a class="icon-link"
+                        href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83ZTY4ZGYzNC9wb2RjYXN0L3Jzcw"
+                        target="_blank" rel="noopener" title="Kurakahani Google Podcast"><i
+                            class="fa-solid fa-podcast fa-3x"></i></a>
+                    <a class="icon-link" href="https://podcasters.spotify.com/pod/show/kura-kahani" target="_blank"
+                        rel="noopener" title="Kurakahani Spotify"><i class="fa-brands fa-spotify fa-3x"></i></a>
+                    <a class="icon-link" href="https://www.patreon.com/kurakahani" target="_blank" rel="noopener"
+                        title="Kurakahani Spotify"><i class="fa-brands fa-patreon fa-3x"></i></a>
+                    <a class="icon-link" href="https://twitter.com/kurakahani" target="_blank" rel="noopener"
+                        title="Kurakahani Twitter"><i class="fa-brands fa-square-x-twitter fa-3x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="scrape.js"></script>
 </body>
+
 </html>

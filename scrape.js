@@ -34,7 +34,7 @@ fetch('https://raw.githubusercontent.com/ChandanShakya/Kurakahani/main/rss_feed.
             const episodeHTML = `
                 <div class="card mb-3">
                 <a href="${youtubeVideoUrl}" target="_blank">
-                    <img src="${image}" class="card-img-top" alt="Episode Image">
+                    <img src="${image}" class="card-img-top" alt="${title} Episode Image">
                 </a>
                     <div class="card-body">
                         <h5 class="card-title">${title}</h5>
