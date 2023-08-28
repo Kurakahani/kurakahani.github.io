@@ -1,0 +1,68 @@
+# Site settings
+title: "Kurakahani Podcast"
+description: "Kurakahani Podcast: Sharing diverse stories through engaging conversations. Join us as we explore varied backgrounds and ideas. Support our growth journey!"
+podcast-description: "We are Kurakahani Podcast channel. We do podcast with different people of different background. Trying to hear and share the story of them.
+    We are team of three individuals with different interest but the talking and sharing of different idea bought us together and here we are to share and hear the story of us and our friends guest that shows up on the podcast.
+    Kurakahani is a platform to share the feelings, ideas, gossip and many more.
+    Support us by anyway possible to grow.
+    Thank you"
+url:  "https://kurakahani.github.io/" # Actual base url of the website
+baseurl: "/"                    # url of the jekyll blog. e.g. if you set url to "mysite.com" and baseurl to "blog", the jekyll website will work on "mysite.com/blog"
+author:
+  name: "Prabin Buddhacharya"
+  email: "prabinbuddha@gmail.com"
+  url: "https://www.linkedin.com/in/beprabin/"
+permalink: pretty
+permalink: /:title
+keywords: [podcast, jekyll]
+
+#Plugins
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap]
+
+#exclude: [_podcast.rss] #Ignore this, it will be used in case I decide to add rss feed
+
+#Pagination
+paginate: 5
+paginate_path: "/page-:num/"
+
+#Sass
+sass:
+  style: compressed
+  sourcemap: never
+
+#SEO
+twitter:
+  username: kurakahani
+  card: summary
+facebook:
+  app_id: 
+logo: https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/images/logo.jpg
+social:
+  name: Kurakahani Podcast
+  links:
+    - https://www.youtube.com/@KuraKahaniPodcast
+    - https://www.instagram.com/kurakahani
+    - https://www.patreon.com/kurakahani
+    - https://twitter.com/kurakahani
+    - https://podcasters.spotify.com/pod/show/kura-kahani
+    - https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83ZTY4ZGYzNC9wb2RjYXN0L3Jzcw
+lang: en
+
+#Podcast Metadata. Used by the RSS Feed, which currently isn't in use. So you can avoid this
+podcast_title: Kurakahani Podcast
+podcast_author: Prabin Buddhacharya
+podcast_email: kurakahani@gmail.com
+podcast_subtitle: "KuraKahani Podcast"
+podcast_summary: "Sharing diverse stories through engaging conversations. Join us as we explore varied backgrounds and ideas. Support our growth journey!"
+podcast_description: "We are Kurakahani Podcast channel. We do podcast with different people of different background. Trying to hear and share the story of them.
+    We are team of three individuals with different interest but the talking and sharing of different idea bought us together and here we are to share and hear the story of us and our friends guest that shows up on the podcast.
+    Kurakahani is a platform to share the feelings, ideas, gossip and many more.
+    Support us by anyway possible to grow.
+    Thank you"
+podcast_explicit: "no"
+podcast_type: serial 
+podcast_lang: en
+podcast_launch: "2021-12-15" #Launch date of your podcast
+podcast_copyright: "&#xA9;Kurakahani Podcast"
+podcast_feed: "https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/rss_feed.xml"
+podcast_artwork: "https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/images/logo.jpg"

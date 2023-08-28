@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {%- include header.html -%}
+  <div class="container">
+      <div class="content ">
+        {{ content }}
+        
+      </div>
+
+      <div class = "sidebar">
+        {%- include sidebar.html -%}
+      </div>
+   
+  </div>
+
+  {%- include footer.html -%}
+
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+{%- include playerjs.html -%}
+
+</body>
+</html>

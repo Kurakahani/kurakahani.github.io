@@ -1,0 +1,29 @@
+<div id = "header">
+    <h1><a href="{{site.url}}">{{site.title}}</a></h1>
+    <div class = "wave">
+    </div>
+
+    <nav role="navigation">
+      <div id = "desktop-nav">
+        <ul id = "desktop-menu">
+          {% for item in site.data.settings.pages  %}
+          <li><a href="{{ item.link | absolute_url}}"> {{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div id="hammenuToggle">
+          <input type="checkbox" />
+    
+          <span></span>
+          <span></span>
+          <span></span>
+          
+    
+          <ul id = "menu">
+            {% for item in site.data.settings.pages %}
+            <li><a href="{{ item.link | absolute_url}}">  {{ item.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+    </nav>
+</div>
