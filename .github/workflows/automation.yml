@@ -47,25 +47,27 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload RSS Feed
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: rss-feed
           path: rss_feed.xml
   
       - name: Determine Next Release Number
         id: determine_release_number
-        run: echo "::set-output name=release_number::$(($(git tag -l | wc -l) + 1))"
-  
+        run: |
+          release_number=$(( $(git tag -l | wc -l) + 1 ))
+          echo "RELEASE_NUMBER=$release_number" >> $GITHUB_ENV
+        
       - name: Create Release
         run: |
           response=$(curl -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/releases \
+            "https://api.github.com/repos/${{ github.repository }}/releases" \
             -d '{
-              "tag_name": "v'"${{ steps.determine_release_number.outputs.release_number }}"'",
+              "tag_name": "v'"${RELEASE_NUMBER}"'",
               "target_commitish": "main",
-              "name": "Release v'"${{ steps.determine_release_number.outputs.release_number }}"'",
+              "name": "Release v'"${RELEASE_NUMBER}"'",
               "body": "Release Notes"
             }')
           upload_url=$(echo "$response" | jq -r '.upload_url')

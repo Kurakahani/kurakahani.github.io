@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+from xml.etree import ElementTree as ET
 import googleapiclient.discovery
 import googleapiclient.errors
 from conversion_script import convert_video_to_audio, extract_metadata
@@ -8,10 +10,34 @@ from rss_feed_generator import generate_rss_entry, update_rss_feed
 API_KEY = os.environ.get("API_KEY")
 
 # YouTube Data API client
-youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
+youtube = googleapiclient.discovery.build(
+    "youtube", "v3", developerKey=API_KEY)
 
 # Kurakahani Podcast YouTube channel ID
 CHANNEL_ID = "UC522A4Nx21ApYqwZzAiwhRg"
+
+
+def update_sitemap():
+    urlset = ET.Element("urlset")
+    urlset.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    url = ET.SubElement(urlset, "url")
+    loc = ET.SubElement(url, "loc")
+    loc.text = "https://kurakahani.github.io/"
+
+    lastmod = ET.SubElement(url, "lastmod")
+    lastmod.text = datetime.now().strftime("%Y-%m-%d")
+
+    changefreq = ET.SubElement(url, "changefreq")
+    changefreq.text = "monthly"
+
+    priority = ET.SubElement(url, "priority")
+    priority.text = "1"
+
+    tree = ET.ElementTree(urlset)
+    tree.write("sitemap.xml", xml_declaration=True,
+               encoding="utf-8")
+
 
 def get_new_videos():
     try:
@@ -25,8 +51,9 @@ def get_new_videos():
         ).execute()
 
         # Extract video IDs from search results
-        video_ids = [item["id"]["videoId"] for item in search_response.get("items", [])]
-        
+        video_ids = [item["id"]["videoId"]
+                     for item in search_response.get("items", [])]
+
         # Exclude the specific video ID
         video_ids = [vid for vid in video_ids if vid != "iWx1fuxbLTQ"]
 
@@ -35,6 +62,7 @@ def get_new_videos():
     except googleapiclient.errors.HttpError as e:
         print("An error occurred:", e)
         return []
+
 
 def main():
     # Load existing video IDs from the available_podcasts.txt file
@@ -47,7 +75,8 @@ def main():
     new_video_ids = get_new_videos()
 
     # Filter out already existing videos
-    new_video_ids = [vid for vid in new_video_ids if vid not in existing_video_ids]
+    new_video_ids = [
+        vid for vid in new_video_ids if vid not in existing_video_ids]
 
     if new_video_ids:
         # Update the available_podcasts.txt file with new video IDs
@@ -56,7 +85,7 @@ def main():
                 f.write(vid + "\n")
 
         new_video_ids.reverse()
-        
+
         # Process new videos
         for video_id in new_video_ids:
             # Call conversion_script to convert video to audio
@@ -68,6 +97,10 @@ def main():
             # Call rss_feed_generator to update the RSS feed
             generate_rss_entry(metadata)
             update_rss_feed(metadata)
+            # Update the sitemap.xml file
+
+    update_sitemap()
+
 
 if __name__ == "__main__":
     main()
