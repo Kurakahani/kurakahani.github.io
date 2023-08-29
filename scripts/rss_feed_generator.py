@@ -1,5 +1,5 @@
 import re
-
+import os
 
 def generate_rss_entry(metadata):
     rss_entry = f"""
@@ -69,3 +69,13 @@ def update_rss_feed(metadata):
     # Write the sorted content to the rss_feed.xml file
     with open("rss_feed.xml", "w", encoding="utf-8") as f:
         f.write(rss_content)
+
+
+def rss_copy():
+    source_file = "rss_feed.xml"
+    destination_file = "feed"  # New filename without extension
+    
+    # Copy the source file to the destination with the new name
+    os.system(f"cp {source_file} {destination_file}")
+    
+    print(f"{source_file} copied to {destination_file}")

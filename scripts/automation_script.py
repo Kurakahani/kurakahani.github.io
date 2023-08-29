@@ -4,7 +4,7 @@ from xml.etree import ElementTree as ET
 import googleapiclient.discovery
 import googleapiclient.errors
 from conversion_script import convert_video_to_audio, extract_metadata
-from rss_feed_generator import generate_rss_entry, update_rss_feed
+from rss_feed_generator import generate_rss_entry, update_rss_feed, rss_copy
 from generate_post import generate_jekyll_posts
 
 # YouTube API key
@@ -78,9 +78,7 @@ def main():
             # Call rss_feed_generator to update the RSS feed
             generate_rss_entry(metadata)
             update_rss_feed(metadata)
-
-    generate_jekyll_posts(rss_file)
-
+    rss_copy()
 
 if __name__ == "__main__":
     main()
