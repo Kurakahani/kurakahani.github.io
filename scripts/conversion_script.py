@@ -84,7 +84,8 @@ def extract_metadata(video_id):
             "image": f"images/{video_id}",
             "language": "Nepali",
             "audio_url": f"audio_files/{video_id}.m4a",
-            "published_date": video_data["publishedAt"]
+            "published_date": video_data["publishedAt"],
+            "duration" : video_data["duration"]
         }
         return metadata
 

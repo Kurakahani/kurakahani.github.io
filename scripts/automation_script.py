@@ -16,29 +16,6 @@ youtube = googleapiclient.discovery.build(
 # Kurakahani Podcast YouTube channel ID
 CHANNEL_ID = "UC522A4Nx21ApYqwZzAiwhRg"
 
-
-def update_sitemap():
-    urlset = ET.Element("urlset")
-    urlset.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
-
-    url = ET.SubElement(urlset, "url")
-    loc = ET.SubElement(url, "loc")
-    loc.text = "https://kurakahani.github.io/"
-
-    lastmod = ET.SubElement(url, "lastmod")
-    lastmod.text = datetime.now().strftime("%Y-%m-%d")
-
-    changefreq = ET.SubElement(url, "changefreq")
-    changefreq.text = "monthly"
-
-    priority = ET.SubElement(url, "priority")
-    priority.text = "1"
-
-    tree = ET.ElementTree(urlset)
-    tree.write("sitemap.xml", xml_declaration=True,
-               encoding="utf-8")
-
-
 def get_new_videos():
     try:
         # Perform a search for new podcast videos on Kurakahani Podcast channel
@@ -98,8 +75,6 @@ def main():
             generate_rss_entry(metadata)
             update_rss_feed(metadata)
             # Update the sitemap.xml file
-
-    update_sitemap()
 
 
 if __name__ == "__main__":
