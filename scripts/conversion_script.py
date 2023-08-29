@@ -69,23 +69,26 @@ def extract_metadata(video_id):
     try:
         # Fetch video metadata using the YouTube Data API
         video_response = youtube.videos().list(
-            part="snippet",
+            part="snippet,contentDetails",  # Fetch contentDetails as well
             id=video_id
         ).execute()
 
-        video_data = video_response.get("items", [])[0]["snippet"]
+        video_data = video_response.get("items", [])[0]
+
+        snippet = video_data["snippet"]
+        content_details = video_data["contentDetails"]
 
         # Extract metadata
         metadata = {
-            "title": video_data["title"],
-            "description": video_data["description"],
+            "title": snippet["title"],
+            "description": snippet["description"],
             "author": "Prabin Buddhacharya",
             "email": "kurakahani@gmail.com",
             "image": f"images/{video_id}",
             "language": "Nepali",
             "audio_url": f"audio_files/{video_id}.m4a",
-            "published_date": video_data["publishedAt"],
-            "duration" : video_data["duration"]
+            "published_date": snippet["publishedAt"],
+            "duration": content_details["duration"],  # Fetch duration from contentDetails
         }
         return metadata
 
