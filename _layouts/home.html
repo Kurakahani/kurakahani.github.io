@@ -40,9 +40,9 @@ layout: default
     <div class = "long-excerpt">
         <p>
             {% if post.description %}
-                {{post.description | strip_html | truncatewords:30}}
+                {{post.description | truncatewords:30}}
             {% else %}
-                {{ post.content | strip_html | truncatewords:30 }}
+                {{ post.content | truncatewords:30 }}
             {% endif %}
             <span class = "continue-reading"><a href="{{ post.url | absolute_url }}">Continue</a></span> 
         </p> 
