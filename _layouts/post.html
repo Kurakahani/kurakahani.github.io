@@ -14,8 +14,8 @@ comments: true
         </div>
         <h2>{{page.title}}</h2>
 
-        {% if post.cover %}
-                <img src="{{post.cover}}" alt="Podcast Cover">
+        {% if page.cover %}
+                <img src="{{page.cover}}" alt="Podcast Cover">
         {% else %}
                 <img src="{{ "/assets/img/logo.png" | absolute_url}}" alt="Podcast Cover">
         {% endif %}
