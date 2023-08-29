@@ -1,0 +1,26 @@
+analytics-id: G-L47C2REYH9
+#Pages
+pages:
+  - {name: 'Episodes', link: 'episodes.html'}
+  - {name: 'Patreon', link: 'https://www.patreon.com/kurakahani'}
+  - {name: 'GitHub', link: 'https://github.com/Kurakahani'}
+
+social:
+  - {icon: 'youtube', type: "brand", link: 'https://www.youtube.com/@KuraKahaniPodcast'}  
+  - {icon: 'instagram', type: "brand", link: 'https://www.instagram.com/kurakahani'}
+  - {icon: 'twitter', type: "brand", link: 'https://twitter.com/kurakahani'}
+  - {icon: 'envelope', type: "solid", link: 'mailto:kurakahani@gmail.com'}
+  - {icon: 'rss', type: "solid", link: "https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/rss_feed.xml"}
+
+websites-podcast:
+  - {name: 'YouTube', link: 'https://www.youtube.com/@KuraKahaniPodcast'}
+  - {name: 'Spotify', link: 'https://podcasters.spotify.com/pod/show/kura-kahani'}
+  - {name: 'Google Podcast', link: 'https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83ZTY4ZGYzNC9wb2RjYXN0L3Jzcw'}
+  - {name: 'RSS', link: 'https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/rss_feed.xml'}
+
+translate-date: false #See _includes/date.html to translate the months' name
+shownotes: false
+
+#Disqus
+disqus:
+  disqus-shortname: kurakahani

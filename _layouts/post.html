@@ -1,0 +1,48 @@
+---
+layout: default
+comments: true
+---
+
+<div class = "single-post">
+        <div class="categories">
+                {% assign categories = page.categories %}
+                {% for category in categories %}
+                  <a href="{% capture url %}/categories/#{{ category | slugify }}{% endcapture %}
+                  {{ url | absolute_url }}">{{category}}</a>
+                  {% unless forloop.last %}&nbsp;{% endunless %} 
+                {% endfor %}
+        </div>
+        <h2>{{page.title}}</h2>
+
+        {% if post.cover %}
+                <img src="{{post.cover}}" alt="Podcast Cover">
+        {% else %}
+                <img src="{{ "/assets/img/logo.png" | absolute_url}}" alt="Podcast Cover">
+        {% endif %}
+        
+        <p>{{page.description}}</p>
+
+        {% capture file %}
+                {{- page.file -}}
+        {% endcapture %}
+        {% capture title %}
+                {{- page.title -}}
+        {% endcapture %}
+
+        {% include player.html file = file title = title %}
+
+        {% if page.videoid %}
+                {% include video.html videoid = page.videoid %}
+        {% endif %}
+
+        {{ content }}
+
+        {% if site.data.settings.shownotes == true %}
+                {% include shownotes.html %}
+        {% endif %}
+
+        
+</div>
+{% if site.data.settings.disqus.disqus-shortname %}
+        {%- include disqus.html -%}
+{% endif %}

@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageFilter
 import os
 import yt_dlp
 import googleapiclient.discovery
@@ -65,29 +65,64 @@ def convert_video_to_audio(video_id):
         else:
             os.rename(thumbnail_source_path, thumbnail_destination_path)  # Just move if already JPG
 
+            # Call make_square_cover() here
+        make_square_cover(thumbnail_destination_path, thumbnail_destination_path)
+
 def extract_metadata(video_id):
     try:
         # Fetch video metadata using the YouTube Data API
         video_response = youtube.videos().list(
-            part="snippet",
+            part="snippet,contentDetails",  # Fetch contentDetails as well
             id=video_id
         ).execute()
 
-        video_data = video_response.get("items", [])[0]["snippet"]
+        video_data = video_response.get("items", [])[0]
+
+        snippet = video_data["snippet"]
+        content_details = video_data["contentDetails"]
 
         # Extract metadata
         metadata = {
-            "title": video_data["title"],
-            "description": video_data["description"],
+            "title": snippet["title"],
+            "description": snippet["description"],
             "author": "Prabin Buddhacharya",
             "email": "kurakahani@gmail.com",
             "image": f"images/{video_id}",
             "language": "Nepali",
             "audio_url": f"audio_files/{video_id}.m4a",
-            "published_date": video_data["publishedAt"]
+            "published_date": snippet["publishedAt"],
+            "duration": content_details["duration"],  # Fetch duration from contentDetails
         }
         return metadata
 
     except googleapiclient.errors.HttpError as e:
         print("An error occurred:", e)
         return {}
+
+def make_square_cover(input_image_path, output_image_path, blur_radius=20):
+    # Open the input image
+    img = Image.open(input_image_path)
+    
+    # Calculate the dimensions for the square cover
+    width, height = img.size
+    new_size = max(width, height)
+    
+    # Create a blank white canvas of the new size
+    canvas = Image.new('RGB', (new_size, new_size), 'white')
+    
+    # Calculate the position to paste the original image
+    x_offset = (new_size - width) // 2
+    y_offset = (new_size - height) // 2
+    
+    # Paste the original image onto the canvas
+    canvas.paste(img, (x_offset, y_offset))
+    
+    # Apply a blur filter to the top and bottom parts of the canvas
+    blurred_canvas = canvas.copy()
+    top_box = (0, 0, new_size, height // 4)
+    bottom_box = (0, 3 * height // 4, new_size, new_size)
+    blurred_canvas.crop(top_box).filter(ImageFilter.GaussianBlur(blur_radius)).paste(canvas.crop(top_box), (0, 0))
+    blurred_canvas.crop(bottom_box).filter(ImageFilter.GaussianBlur(blur_radius)).paste(canvas.crop(bottom_box), (0, 3 * height // 4))
+    
+    # Save the final square cover image
+    blurred_canvas.save(output_image_path)

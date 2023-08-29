@@ -13,6 +13,7 @@ def generate_rss_entry(metadata):
             <itunes:author>{metadata['author']}</itunes:author>
             <itunes:explicit>no</itunes:explicit>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/{metadata['image']}.jpg"/>
+            <itunes:duration>{metadata['duration']}</itunes:duration>
         </item>
     """
     return rss_entry

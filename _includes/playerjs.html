@@ -1,0 +1,27 @@
+<script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+
+<script>
+    //See https://github.com/sampotts/plyr for more informations about customization
+
+    const controls = 
+    [
+     "play",
+     "rewind",
+     'progress',
+     "fast-forward",
+     'current-time',
+     'mute',
+     'volume',
+     'settings',
+     'download',
+    ];
+
+    const players = Array.from(document.querySelectorAll(".player"));
+        players.map(player => new Plyr(player, {
+        controls,
+        invertTime: true,
+        toggleInvert: true,
+        settings: ['quality', 'speed'],
+    }));
+    
+</script>

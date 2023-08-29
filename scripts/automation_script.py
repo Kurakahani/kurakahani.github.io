@@ -5,6 +5,7 @@ import googleapiclient.discovery
 import googleapiclient.errors
 from conversion_script import convert_video_to_audio, extract_metadata
 from rss_feed_generator import generate_rss_entry, update_rss_feed
+from generate_post import generate_jekyll_posts
 
 # YouTube API key
 API_KEY = os.environ.get("API_KEY")
@@ -16,28 +17,8 @@ youtube = googleapiclient.discovery.build(
 # Kurakahani Podcast YouTube channel ID
 CHANNEL_ID = "UC522A4Nx21ApYqwZzAiwhRg"
 
-
-def update_sitemap():
-    urlset = ET.Element("urlset")
-    urlset.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
-
-    url = ET.SubElement(urlset, "url")
-    loc = ET.SubElement(url, "loc")
-    loc.text = "https://kurakahani.github.io/"
-
-    lastmod = ET.SubElement(url, "lastmod")
-    lastmod.text = datetime.now().strftime("%Y-%m-%d")
-
-    changefreq = ET.SubElement(url, "changefreq")
-    changefreq.text = "monthly"
-
-    priority = ET.SubElement(url, "priority")
-    priority.text = "1"
-
-    tree = ET.ElementTree(urlset)
-    tree.write("sitemap.xml", xml_declaration=True,
-               encoding="utf-8")
-
+# Kurakani rss filename
+rss_file = "rss_feed.xml"
 
 def get_new_videos():
     try:
@@ -97,9 +78,8 @@ def main():
             # Call rss_feed_generator to update the RSS feed
             generate_rss_entry(metadata)
             update_rss_feed(metadata)
-            # Update the sitemap.xml file
 
-    update_sitemap()
+    generate_jekyll_posts(rss_file)
 
 
 if __name__ == "__main__":
