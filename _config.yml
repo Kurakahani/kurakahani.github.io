@@ -17,7 +17,7 @@ permalink: /:title
 keywords: [podcast, jekyll]
 
 #Plugins
-plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap]
+plugins: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap, jekyll-feed]
 
 #exclude: [_podcast.rss] #Ignore this, it will be used in case I decide to add rss feed
 
@@ -47,6 +47,9 @@ social:
     - https://podcasters.spotify.com/pod/show/kura-kahani
     - https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83ZTY4ZGYzNC9wb2RjYXN0L3Jzcw
 lang: en
+
+feed:
+  path: /rss_feed.xml
 
 #Podcast Metadata. Used by the RSS Feed, which currently isn't in use. So you can avoid this
 podcast_title: Kurakahani Podcast
