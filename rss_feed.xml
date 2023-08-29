@@ -13,7 +13,6 @@
     Support us by anyway possible to grow.
     Thank you</description>
     <itunes:explicit>no</itunes:explicit>
-        
         <item>
             <title>Skilled Nepal | Episode 4 | Kurakahani</title>
             <description>Skilled Nepal is an organization started by students Pragye, Swapnil and Eirab. Pragye and Swapnil joind us in Kurakahani podcast to talk about Skilled Nepal, how they started and challenges starting an organization. Besides Skilled Nepal we talked about different topics as well. 
@@ -32,7 +31,6 @@ https://www.instagram.com/kurakahani/</description>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/XkHOoNVGRPs.jpg"/>
             <itunes:duration>PT1H2M15S</itunes:duration>
         </item>
-    
 <item>
             <title>Program Coordinator of Kathmandu Coding Olympics Susan Dangol | Episode 3 | Kurakahani Podcast</title>
             <description>Mr. Susan Dangol is a Leo, Hult Prize coordinator of 2020 and program coordinator of coding Olympics Kathmandu overall. He is a young enthusiast working in society to make it better. He is working in different field in Nepal to uplift the society. He has been involved in Hult prizes to bring out the new entrepreneurs and many other projects. Recently, he has been involved in closing the gap between coding and students to educate students about the importance of coding and impact it can create to the society with the movement of Coding Olympics.He is program coordinator of kathmandu city. 
@@ -101,5 +99,19 @@ Ayush, Rikesh, Prinsha, Vishakha, Samyeak, Raman.</description>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/gREtAz4zHgo.jpg"/>
             <itunes:duration>PT20M40S</itunes:duration>
         </item>
+
+        <item>
+            <title>intro for  s1 | Kurakahani | 2022</title>
+            <description></description>
+            <enclosure url="https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/iWx1fuxbLTQ.m4a" length="1" type="audio/mpeg"/>
+            <author>Prabin Buddhacharya</author>
+            <pubDate>2022-08-27T15:05:24Z</pubDate>
+            <guid>https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/iWx1fuxbLTQ.m4a</guid>
+            <itunes:author>Prabin Buddhacharya</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/iWx1fuxbLTQ.jpg"/>
+            <itunes:duration>PT25S</itunes:duration>
+        </item>
+    
 </channel>
 </rss>

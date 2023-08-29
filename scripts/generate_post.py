@@ -26,7 +26,13 @@ def generate_jekyll_posts(rss_file):
     for item in root.findall(".//item"):
         metadata = {}
         metadata['title'] = item.find("title").text
-        metadata['description'] = item.find("description").text.replace("\n", "<br>")
+
+        description_element = item.find("description")
+        if description_element is not None and description_element.text is not None:
+            metadata['description'] = description_element.text.replace("\n", "<br>")
+        else:
+            metadata['description'] = ""
+        
         metadata['audio_url'] = item.find("enclosure").get("url")
         metadata['author'] = item.find("author").text
         metadata['published_date'] = item.find("pubDate").text.replace("T", " ").replace("Z", " +0000")
@@ -39,7 +45,8 @@ def generate_jekyll_posts(rss_file):
             os.makedirs("_posts")
         
         post_date = datetime.strptime(metadata['published_date'], "%Y-%m-%d %H:%M:%S %z")
-        episode_number = re.search(r"Episode (\d+)", metadata['title']).group(1)
+        episode_number_match = re.search(r"Episode\s*(\d+)", metadata['title'])
+        episode_number = episode_number_match.group(1) if episode_number_match else "Extra"
         post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_number}.md"
         post_file_path = os.path.join("_posts", post_file_name)
         
@@ -47,8 +54,14 @@ def generate_jekyll_posts(rss_file):
             f.write("---\n")
             f.write(f"title: {metadata['title']}\n")
             f.write("layout: post\n")
-            f.write("categories: [Main]\n")
-            f.write("type: main\n")
+            if episode_number == "Extra":
+                f.write("categories: [Extra]\n")
+            else:
+                f.write("categories: [Main]\n")
+            if episode_number == "Extra":
+                f.write("type: extra\n")
+            else:
+                f.write("type: main\n")
             f.write(f"description: \"{metadata['description']}\"\n")
             f.write(f"file: {metadata['audio_url']}\n")
             f.write(f"length: \"{metadata['duration']}\"\n")

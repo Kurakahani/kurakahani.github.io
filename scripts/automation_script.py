@@ -36,7 +36,7 @@ def get_new_videos():
                      for item in search_response.get("items", [])]
 
         # Exclude the specific video ID
-        video_ids = [vid for vid in video_ids if vid != "iWx1fuxbLTQ"]
+        video_ids = [vid for vid in video_ids]
 
         return video_ids
 
