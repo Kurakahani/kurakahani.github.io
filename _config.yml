@@ -36,7 +36,7 @@ twitter:
   card: summary
 facebook:
   app_id: 
-logo: https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/images/logo.jpg
+logo: /assets/img/logo.png
 social:
   name: Kurakahani Podcast
   links:
