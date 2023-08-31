@@ -78,6 +78,8 @@ def main():
             # Call rss_feed_generator to update the RSS feed
             generate_rss_entry(metadata)
             update_rss_feed(metadata)
+
+    generate_jekyll_posts(rss_file)
     rss_copy()
 
 if __name__ == "__main__":

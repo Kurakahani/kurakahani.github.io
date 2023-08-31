@@ -1,8 +1,8 @@
 ---
 title: intro for  s1 | Kurakahani | 2022
 layout: post
-categories: [Extra]
-type: extra
+categories: [Main]
+type: main
 description: ""
 file: https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/iWx1fuxbLTQ.m4a
 length: "0:00:24"
