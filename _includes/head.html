@@ -10,10 +10,6 @@
             {{ page.title }} | {{ site.title }}
       {% endif %}
     </title>
-    <meta name="description" content="
-     {% if page.description %}{{ page.description }}
-     {% else %}{{ site.description }}
-    {% endif %}">
 
     <link rel="icon" href="{{"/favicon.ico" | absolute_url }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{"/favicon.ico" | absolute_url }}" type="image/x-icon">
@@ -30,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
         <!-- SEO Plugin -->
-        {% seo %}
+        {% seo title=false %}
 
         <!-- Google Analytics -->
         {% if site.data.settings.analytics-id%}
