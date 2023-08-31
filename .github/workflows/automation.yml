@@ -1,9 +1,6 @@
 name: Podcast Automation
 
 on:
-  schedule:
-    - cron: "45 0 * * *"  # 6:00 AM Nepal time
-    - cron: "45 12 * * *" # 6:00 PM Nepal time
   workflow_dispatch:
   issues:
     types:
