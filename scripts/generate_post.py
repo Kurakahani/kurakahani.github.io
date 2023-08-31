@@ -50,7 +50,7 @@ def generate_jekyll_posts(rss_file):
 
         if episode_number == "Extra":
             episode_numbers = re.sub(r'\W+', '-', metadata['title'].split("|")[0].strip().lower())
-            episode_numbers = f"Extra-{episode_number}"
+            episode_numbers = f"Extra-{episode_numbers}"
             post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_numbers}.md"
         else:
             post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_number}.md"
