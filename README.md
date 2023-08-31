@@ -1,6 +1,6 @@
-# Kurakahani Podcast Extraction and RSS Feed Generation
+# Kurakahani Podcast Extraction, RSS Feed Generation and Website Creation
 
-This project aims to automate the extraction of audio content from the "Kurakahani" podcast videos on YouTube, convert them to audio files, and generate an RSS feed for easy distribution. The audio files and the RSS feed are made available on this GitHub repository.
+This project aims to automate the extraction of audio content from the "Kurakahani" podcast videos on YouTube, convert them to audio files, generate an RSS feed, and finally create a website at [kurakahani.github.io](https://kurakahani.github.io) where users can easily access and explore the podcast's episodes.
 
 ## Table of Contents
 - [About the Project](#about-the-project)
@@ -14,7 +14,7 @@ This project aims to automate the extraction of audio content from the "Kurakaha
 
 ## About the Project
 
-The "Kurakahani" podcast presents engaging discussions and valuable insights on various topics. This project aims to make these discussions more accessible by providing audio versions of the podcast episodes along with an RSS feed that listeners can subscribe to.
+The "Kurakahani" podcast offers engaging discussions and valuable insights on various topics. This project enhances accessibility by providing audio versions of podcast episodes, along with an RSS feed and a dedicated website where listeners can explore the content.
 
 **Check out the [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast) for the original video content.**
 
@@ -24,10 +24,11 @@ The "Kurakahani" podcast presents engaging discussions and valuable insights on 
 - Automatic extraction of audio content from "Kurakahani" podcast videos.
 - Conversion of video episodes to audio files.
 - Generation of an RSS feed for podcast distribution.
+- Creation of a dedicated website at [kurakahani.github.io](https://kurakahani.github.io) for easy access to podcast episodes.
 
 ## Usage
 
-This project automatically extracts audio content from the "Kurakahani" podcast videos, converts them to audio files, and generates an RSS feed for easy distribution. You don't need to run any scripts manually to benefit from this project.
+This project automatically extracts audio content from "Kurakahani" podcast videos, converts them to audio files, generates an RSS feed, and creates a dedicated website. You can explore the podcast's episodes and access the content on the [kurakahani.github.io](https://kurakahani.github.io) website.
 
 ## How It Works
 
@@ -39,14 +40,14 @@ Behind the scenes, this project employs a combination of automation, scripting, 
 
 3. **RSS Feed Generation**: The metadata (title, description, etc.) of the video is extracted using the YouTube Data API. An RSS feed is then automatically generated using this metadata and the link to the converted audio file.
 
-4. **GitHub Action**: The entire process is automated through a GitHub Action workflow. It runs the automation script and ensures that the latest audio files and RSS feed are available on this repository: [https://github.com/Kurakahani/Kurakahani.github.io](https://github.com/Kurakahani/Kurakahani.github.io).
+4. Website Creation: The project also generates a dedicated website at [kurakahani.github.io](https://kurakahani.github.io), where users can explore and access the podcast's episodes.
 
-You don't need to run any scripts yourself to access the audio content or RSS feed. Simply visit the repository linked above to access the content.
+All these processes are automated through a GitHub Action workflow, ensuring that the latest audio files, RSS feed, and website are available at [kurakahani.github.io](https://kurakahani.github.io).
 
 ## Prerequisites
 
 - Access to the [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast).
-- A web browser to access the content on the GitHub repository.
+- A web browser to explore and access the content on the [kurakahani.github.io](https://kurakahani.github.io) website.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
