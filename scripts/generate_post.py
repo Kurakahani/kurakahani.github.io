@@ -49,10 +49,11 @@ def generate_jekyll_posts(rss_file):
         episode_number = episode_number_match.group(1) if episode_number_match else "Extra"
 
         if episode_number == "Extra":
-            episode_number = re.sub(r'\W+', '-', metadata['title'].split("|")[0].strip().lower())
-            episode_number = f"Extra-{episode_number}"
-
-        post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_number}.md"
+            episode_numbers = re.sub(r'\W+', '-', metadata['title'].split("|")[0].strip().lower())
+            episode_numbers = f"Extra-{episode_number}"
+            post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_numbers}.md"
+        else:
+            post_file_name = post_date.strftime("%Y-%m-%d-") + f"Episode-{episode_number}.md"
         post_file_path = os.path.join("_posts", post_file_name)
         
         with open(post_file_path, "w") as f:
