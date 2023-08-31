@@ -5,9 +5,17 @@ on:
     - cron: "45 0 * * *"  # 6:00 AM Nepal time
     - cron: "45 12 * * *" # 6:00 PM Nepal time
   workflow_dispatch:
+  issues:
+    types:
+      - opened
+      - reopened
+      - labeled
 
 jobs:
   automation:
+    if: |
+      github.event.issue.title == 'New Video' && 
+      contains(github.event.issue.labels.*.name, 'New Video')
     runs-on: ubuntu-latest
 
     steps:
