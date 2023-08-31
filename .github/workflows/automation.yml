@@ -77,3 +77,23 @@ jobs:
             -H "Content-Type: application/octet-stream" \
             --data-binary @rss_feed.xml \
             "$upload_url?name=rss_feed.xml"
+
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r archiver-requirements.txt
+
+      - name: Archive Website
+        run: |
+          archiver --sitemaps https://kurakahani.github.io/sitemap.xml
