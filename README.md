@@ -1,6 +1,6 @@
-# Kurakahani Podcast Extraction, RSS Feed Generation and Website Creation
+# Kurakahani Podcast Extraction, RSS Feed Generation, Website Creation, and Auto-Archiving
 
-This project aims to automate the extraction of audio content from the "Kurakahani" podcast videos on YouTube, convert them to audio files, generate an RSS feed, and finally create a website at [kurakahani.github.io](https://kurakahani.github.io) where users can easily access and explore the podcast's episodes.
+This project aims to automate the extraction of audio content from the "Kurakahani" podcast videos on YouTube, convert them to audio files, generate an RSS feed, create a website, and automatically archive all the generated content on the Internet Archive's Wayback Machine. Users can easily access and explore the podcast's episodes at [kurakahani.github.io](https://kurakahani.github.io), RSS feed, and archived website at [The Wayback Machine](https://web.archive.org/web/sitemap/kurakahani.github.io/).
 
 ## Table of Contents
 - [About the Project](#about-the-project)
@@ -8,13 +8,14 @@ This project aims to automate the extraction of audio content from the "Kurakaha
 - [Usage](#usage)
 - [How It Works](#how-it-works)
 - [Prerequisites](#prerequisites)
+- [Links](#links)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
 ## About the Project
 
-The "Kurakahani" podcast offers engaging discussions and valuable insights on various topics. This project enhances accessibility by providing audio versions of podcast episodes, along with an RSS feed and a dedicated website where listeners can explore the content.
+The "Kurakahani" podcast offers engaging discussions and valuable insights on various topics. This project enhances accessibility by providing audio versions of podcast episodes, along with an RSS feed and a dedicated website where listeners can explore the content. Additionally, the project automatically archives all generated content on the Internet Archive's Wayback Machine for long-term preservation.
 
 **Check out the [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast) for the original video content.**
 
@@ -25,10 +26,11 @@ The "Kurakahani" podcast offers engaging discussions and valuable insights on va
 - Conversion of video episodes to audio files.
 - Generation of an RSS feed for podcast distribution.
 - Creation of a dedicated website at [kurakahani.github.io](https://kurakahani.github.io) for easy access to podcast episodes.
+- Automatic archiving of all generated content on the Internet Archive's Wayback Machine.
 
 ## Usage
 
-This project automatically extracts audio content from "Kurakahani" podcast videos, converts them to audio files, generates an RSS feed, and creates a dedicated website. You can explore the podcast's episodes and access the content on the [kurakahani.github.io](https://kurakahani.github.io) website.
+This project automatically extracts audio content from "Kurakahani" podcast videos, converts them to audio files, generates an RSS feed, creates a dedicated website, and archives all content on the Wayback Machine. You can explore the podcast's episodes, access the content on the kurakahani.github.io website, and find archived versions on the Wayback Machine.
 
 ## How It Works
 
@@ -40,14 +42,24 @@ Behind the scenes, this project employs a combination of automation, scripting, 
 
 3. **RSS Feed Generation**: The metadata (title, description, etc.) of the video is extracted using the YouTube Data API. An RSS feed is then automatically generated using this metadata and the link to the converted audio file.
 
-4. Website Creation: The project also generates a dedicated website at [kurakahani.github.io](https://kurakahani.github.io), where users can explore and access the podcast's episodes.
+4. **Website Creation**: The project also generates a dedicated website at [kurakahani.github.io](https://kurakahani.github.io), where users can explore and access the podcast's episodes.
 
-All these processes are automated through a GitHub Action workflow, ensuring that the latest audio files, RSS feed, and website are available at [kurakahani.github.io](https://kurakahani.github.io).
+5. **Auto-Archiving**: The project automatically archives all generated content, including the website, audio files, and RSS feed, on the Internet Archive's Wayback Machine for long-term preservation.
+
+All these processes are automated through a GitHub Action workflow, ensuring that the latest audio files, RSS feed, website, and archived versions are available.
 
 ## Prerequisites
 
 - Access to the [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast).
-- A web browser to explore and access the content on the [kurakahani.github.io](https://kurakahani.github.io) website.
+- A web browser to explore and access the content on the [kurakahani.github.io](https://kurakahani.github.io) website and the Wayback Machine..
+
+## Links
+
+- [Project Repository](https://github.com/Kurakahani/Kurakahani.github.io)
+- [Kurakahani YouTube Channel](https://www.youtube.com/@KuraKahaniPodcast)
+- [Generated Website](https://kurakahani.github.io)
+- [Internet Archive's Wayback Machine](https://web.archive.org/web/sitemap/kurakahani.github.io/)
+- [RSS file](https://raw.githubusercontent.com/Kurakahani/kurakahani.github.io/main/rss_feed.xml)
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
