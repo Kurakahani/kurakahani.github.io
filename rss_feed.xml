@@ -13,7 +13,29 @@
     Support us by anyway possible to grow.
     Thank you</description>
     <itunes:explicit>no</itunes:explicit>
+        
         <item>
+            <title>Sanil Buddhacharya | Episode 5 | @podwithme  | @KuraKahaniPodcast</title>
+            <description>Sanil is host at @podwithme. He is a hike enthusiast,anime nerd and a learner.
+Look up for Dashain Changa Event happening at swayambhu corridor this Dashain 2080. If you want to participate in the upcoming event dm Sanil from social given below
+
+Sanil:
+https://www.instagram.com/sanilbuddhacharya/
+https://www.instagram.com/podwithme999/
+
+Follow us:
+https://www.instagram.com/kurakahani/</description>
+            <enclosure url="https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/j7w8ofioGvk.m4a" length="1" type="audio/mpeg"/>
+            <author>Prabin Buddhacharya</author>
+            <pubDate>2023-10-04T12:00:08Z</pubDate>
+            <guid>https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/j7w8ofioGvk.m4a</guid>
+            <itunes:author>Prabin Buddhacharya</itunes:author>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/j7w8ofioGvk.jpg"/>
+            <itunes:duration>PT1H24M43S</itunes:duration>
+        </item>
+    
+<item>
             <title>Skilled Nepal | Episode 4 | Kurakahani</title>
             <description>Skilled Nepal is an organization started by students Pragye, Swapnil and Eirab. Pragye and Swapnil joind us in Kurakahani podcast to talk about Skilled Nepal, how they started and challenges starting an organization. Besides Skilled Nepal we talked about different topics as well. 
 
@@ -99,8 +121,7 @@ Ayush, Rikesh, Prinsha, Vishakha, Samyeak, Raman.</description>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/gREtAz4zHgo.jpg"/>
             <itunes:duration>PT20M40S</itunes:duration>
         </item>
-
-        <item>
+<item>
             <title>intro for  s1 | Kurakahani | 2022</title>
             <description></description>
             <enclosure url="https://github.com/Kurakahani/Kurakahani.github.io/raw/main/audio_files/iWx1fuxbLTQ.m4a" length="1" type="audio/mpeg"/>
@@ -112,6 +133,5 @@ Ayush, Rikesh, Prinsha, Vishakha, Samyeak, Raman.</description>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/iWx1fuxbLTQ.jpg"/>
             <itunes:duration>PT25S</itunes:duration>
         </item>
-    
 </channel>
 </rss>
