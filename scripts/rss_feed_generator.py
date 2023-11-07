@@ -27,6 +27,7 @@ def update_rss_feed(metadata):
     <link>https://www.youtube.com/@KuraKahaniPodcast</link>
     <language>ne</language>
     <itunes:author>Prabin Buddhacharya</itunes:author>
+    <itunes:email>kurakahani@gmail.com</itunes:email>
     <itunes:category text="Entertainment"/>
     <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/logo.jpg"/>
     <description>We are Kurakahani Podcast channel. We do podcast with different people of different background. Trying to hear and share the story of them.
