@@ -11,7 +11,7 @@ def generate_rss_entry(metadata):
             <pubDate>{metadata['published_date']}</pubDate>
             <guid>https://github.com/Kurakahani/Kurakahani.github.io/raw/main/{metadata['audio_url']}</guid>
             <itunes:author>{metadata['author']}</itunes:author>
-            <itunes:explicit>no</itunes:explicit>
+            <itunes:explicit>false</itunes:explicit>
             <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/{metadata['image']}.jpg"/>
             <itunes:duration>{metadata['duration']}</itunes:duration>
         </item>
@@ -27,7 +27,10 @@ def update_rss_feed(metadata):
     <link>https://www.youtube.com/@KuraKahaniPodcast</link>
     <language>ne</language>
     <itunes:author>Prabin Buddhacharya</itunes:author>
-    <itunes:email>kurakahani@gmail.com</itunes:email>
+    <itunes:owner>
+        <itunes:name>Prabin Buddhacharya</itunes:name>
+        <itunes:email>kurakahani@gmail.com</itunes:email>
+    </itunes:owner>
     <itunes:category text="Entertainment"/>
     <itunes:image href="https://raw.githubusercontent.com/Kurakahani/Kurakahani.github.io/main/images/logo.jpg"/>
     <description>We are Kurakahani Podcast channel. We do podcast with different people of different background. Trying to hear and share the story of them.
@@ -35,7 +38,7 @@ def update_rss_feed(metadata):
     Kurakahani is a platform to share the feelings, ideas, gossip and many more.
     Support us by anyway possible to grow.
     Thank you</description>
-    <itunes:explicit>no</itunes:explicit>
+    <itunes:explicit>false</itunes:explicit>
         """
     rss_footer = """
 </channel>
