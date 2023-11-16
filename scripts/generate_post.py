@@ -58,7 +58,7 @@ def generate_jekyll_posts(rss_file):
         
         with open(post_file_path, "w") as f:
             f.write("---\n")
-            f.write(f"title: {metadata['title']}\n")
+            f.write(f"title: \"{metadata['title']}\"\n")
             f.write("layout: post\n")
             if episode_number == "Extra":
                 f.write("categories: [Extra]\n")
