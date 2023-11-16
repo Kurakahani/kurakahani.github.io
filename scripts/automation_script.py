@@ -22,14 +22,23 @@ rss_file = "rss_feed.xml"
 
 def get_new_videos():
     try:
-        # Perform a search for new podcast videos on Kurakahani Podcast channel
-        search_response = youtube.search().list(
-            q="",
-            channelId=CHANNEL_ID,
-            order="date",
-            type="video",
-            part="id"
-        ).execute()
+        next_page_token = None
+        while True:
+            # Perform a search for new podcast videos on Kurakahani Podcast channel
+            search_response = youtube.search().list(
+                q="",
+                channelId=CHANNEL_ID,
+                order="date",
+                type="video",
+                part="id",
+                maxResults=50,  # Adjust as needed, 50 is the maximum allowed
+                pageToken=next_page_token
+            ).execute()
+            # Check if there are more pages
+            next_page_token = search_response.get("nextPageToken")
+
+            if not next_page_token:
+                break  # No more pages, exit the loop
 
         # Extract video IDs from search results
         video_ids = [item["id"]["videoId"]
