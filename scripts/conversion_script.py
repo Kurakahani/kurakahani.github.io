@@ -108,7 +108,7 @@ def make_square_cover(input_image_path, output_image_path, blur_radius=20):
     new_size = max(width, height)
     
     # Create a blank white canvas of the new size
-    canvas = Image.new('RGBA', (new_size, new_size), (0, 0, 0, 0))
+    canvas = Image.new('RGB', (new_size, new_size), 'white')
     
     # Calculate the position to paste the original image
     x_offset = (new_size - width) // 2

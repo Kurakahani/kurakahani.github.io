@@ -44,6 +44,9 @@ def get_new_videos():
         print("An error occurred:", e)
         return []
 
+# def premiere_check():
+    #To be implemented
+
 
 def main():
     # Load existing video IDs from the available_podcasts.txt file
